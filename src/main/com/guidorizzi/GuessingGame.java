@@ -1,5 +1,7 @@
 package com.guidorizzi;
 
+import java.util.Random;
+
 public class GuessingGame {
 
     public String guess(int guessedNumber) {
@@ -7,7 +9,7 @@ public class GuessingGame {
     }
 
     public int getRandomNumber(){
-        return 0;
+        return new Random().nextInt(10) + 1 ;
     }
 
 }

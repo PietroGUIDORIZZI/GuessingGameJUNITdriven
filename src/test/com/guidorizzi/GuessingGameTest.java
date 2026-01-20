@@ -34,4 +34,23 @@ public class GuessingGameTest {
         String message = game.guess(randomNum + 1);
         assertEquals("You didn't get it", message);
     }
+
+    @Test
+    public void testRandomNumberGeneration(){
+        // 1 2 3 4 5 6 7 8 9 10 = options
+        // 1 1 1 1 0 1 0 1 1 1  = nums appeared
+        int[] rndNumCount = new int[11];
+        for(int counter=0; counter<100; counter++) {
+            int randomNum = game.getRandomNumber();
+            rndNumCount[randomNum] = 1;
+        }
+
+        int sum = 0;
+        for (int counter=0; counter<11; counter++){
+            sum = sum + rndNumCount[counter];
+
+        }
+        System.out.println(sum);
+        assertEquals(10, sum);
+    }
 }
