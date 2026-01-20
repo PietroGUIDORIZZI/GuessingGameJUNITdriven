@@ -9,7 +9,7 @@ public class GuessingGame {
 
     public String guess(int guessedNumber) {
         counter++;
-        if (counter == 4) {
+        if (counter == 4 && guessedNumber != getRandomNumber()) {
             return "You didn't get it in four tries. Game Over.";
         }
         return guessedNumber == getRandomNumber() ? "You got it" : "You didn't get it";
