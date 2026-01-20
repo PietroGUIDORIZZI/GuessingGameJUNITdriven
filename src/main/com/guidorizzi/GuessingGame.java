@@ -10,9 +10,11 @@ public class GuessingGame {
     public String guess(int guessedNumber) {
         counter++;
         if (counter == 4 && guessedNumber != getRandomNumber()) {
-            return "You didn't get it in four tries. Game Over.";
+            return "You didn't get it and you've had four tries. Game-Over.";
         }
-        return guessedNumber == getRandomNumber() ? "You got it" : "You didn't get it";
+        String tryText = counter == 1 ? "try." : "tries.";
+        String winningMsg = String.format("You got it in %d %s", counter, tryText);
+        return guessedNumber == getRandomNumber() ? winningMsg : "You didn't get it";
     }
 
     public int getRandomNumber(){
