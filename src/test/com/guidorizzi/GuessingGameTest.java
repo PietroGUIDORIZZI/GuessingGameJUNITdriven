@@ -57,26 +57,25 @@ public class GuessingGameTest {
 
     @Test
     public void testFourWrongGuesses(){
-        makeThreeWrongGuesses();
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
         String message = game.guess(-3);
-        assertEquals("You didn't get it and you've had four tries. Game-Over.", message);
+        assertEquals("You didn't get it and you've had 4 tries. Game-Over.", message);
 
     }
 
     @Test
     public void testThreeWrongGuessesAndOneCorrect(){
-        makeThreeWrongGuesses();
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
         int correctAnswer = game.getRandomNumber();
         String message = game.guess (correctAnswer);
         assertEquals("You got it in 4 tries.", message);
 
     }
 
-    private void makeThreeWrongGuesses() {
-        game.guess(-3);
-        game.guess(-3);
-        game.guess(-3);
-    }
 
     @Test
     public void testTwoWrongGuessesAndOneCorrect(){
@@ -85,6 +84,22 @@ public class GuessingGameTest {
         int correctAnswer = game.getRandomNumber();
         String message = game.guess (correctAnswer);
         assertEquals("You got it in 3 tries.", message);
+
+    }
+
+    @Test
+    public void testTenWrongGuesses(){
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        String message = game.guess (-3);
+        assertEquals("Sorry, you are limited to only 4 tries. Your game is over.", message);
 
     }
 }
