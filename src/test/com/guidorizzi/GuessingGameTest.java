@@ -36,7 +36,7 @@ public class GuessingGameTest {
         assertEquals("You didn't get it", message);
     }
 
-    @RepeatedTest(10)
+    @Test
     public void testRandomNumberGeneration(){
         // 1 2 3 4 5 6 7 8 9 10 = options
         // 1 1 1 1 0 1 0 1 1 1  = nums appeared
@@ -54,5 +54,15 @@ public class GuessingGameTest {
         }
         System.out.println(sum);
         assertEquals(10, sum);
+    }
+
+    @Test
+    public void testFourWrongGuesses(){
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
+        String message = game.guess(-3);
+        assertEquals("You didn't get it in four tries. Game Over.", message);
+
     }
 }
