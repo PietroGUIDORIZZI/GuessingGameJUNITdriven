@@ -41,7 +41,7 @@ public class GuessingGameTest {
         // 1 2 3 4 5 6 7 8 9 10 = options
         // 1 1 1 1 0 1 0 1 1 1  = nums appeared
         int[] rndNumCount = new int[11];
-        for(int counter=0; counter<50; counter++) {
+        for(int counter=0; counter<100; counter++) {
             GuessingGame game = new GuessingGame();
             int randomNum = game.getRandomNumber();
             rndNumCount[randomNum] = 1;
@@ -58,9 +58,7 @@ public class GuessingGameTest {
 
     @Test
     public void testFourWrongGuesses(){
-        game.guess(-3);
-        game.guess(-3);
-        game.guess(-3);
+        makeThreeWrongGuesses();
         String message = game.guess(-3);
         assertEquals("You didn't get it in four tries. Game Over.", message);
 
@@ -68,13 +66,17 @@ public class GuessingGameTest {
 
     @Test
     public void testThreeWrongGuessesAndOneCorrect(){
-        game.guess(-3);
-        game.guess(-3);
-        game.guess(-3);
+        makeThreeWrongGuesses();
         int correctAnswer = game.getRandomNumber();
         String message = game.guess (correctAnswer);
         assertEquals("You got it", message);
 
+    }
+
+    private void makeThreeWrongGuesses() {
+        game.guess(-3);
+        game.guess(-3);
+        game.guess(-3);
     }
 
     @Test
