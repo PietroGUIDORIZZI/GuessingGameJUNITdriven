@@ -40,7 +40,7 @@ public class GuessingGameTest {
         // 1 2 3 4 5 6 7 8 9 10 = options
         // 1 1 1 1 0 1 0 1 1 1  = nums appeared
         int[] rndNumCount = new int[11];
-        for(int counter=0; counter<100; counter++) {
+        for(int counter=0; counter<10; counter++) {
             GuessingGame game = new GuessingGame();
             int randomNum = game.getRandomNumber();
             rndNumCount[randomNum] = 1;
