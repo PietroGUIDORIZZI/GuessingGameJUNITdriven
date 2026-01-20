@@ -76,4 +76,14 @@ public class GuessingGameTest {
         assertEquals("You got it", message);
 
     }
+
+    @Test
+    public void testTwoWrongGuessesAndOneCorrect(){
+        game.guess(-3);
+        game.guess(-3);
+        int correctAnswer = game.getRandomNumber();
+        String message = game.guess (correctAnswer);
+        assertEquals("You got it", message);
+
+    }
 }
