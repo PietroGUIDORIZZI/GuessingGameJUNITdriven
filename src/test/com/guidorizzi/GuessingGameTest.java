@@ -15,9 +15,17 @@ public class GuessingGameTest {
     }
 
     @Test
-    public void testOneWrongGuessSituation(){
+    public void testOneWrongNegGuessSituation(){
         GuessingGame game = new GuessingGame();
         String message = game.guess(-5);
+        assertEquals("You didn't get it", message);
+    }
+
+    @Test
+    public void testOneWrongPosGuessSituation(){
+        GuessingGame game = new GuessingGame();
+        int randomNum = game.getRandomNumber();
+        String message = game.guess(randomNum + 1);
         assertEquals("You didn't get it", message);
     }
 }
