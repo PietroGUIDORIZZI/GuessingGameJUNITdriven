@@ -14,5 +14,10 @@ public class GuessingGameTest {
         assertEquals("You got it", message);
     }
 
-
+    @Test
+    public void testOneWrongGuessSituation(){
+        GuessingGame game = new GuessingGame();
+        String message = game.guess(-5);
+        assertEquals("You didn't get it", message);
+    }
 }
