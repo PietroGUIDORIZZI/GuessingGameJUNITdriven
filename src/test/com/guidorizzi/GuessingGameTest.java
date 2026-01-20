@@ -41,6 +41,7 @@ public class GuessingGameTest {
         // 1 1 1 1 0 1 0 1 1 1  = nums appeared
         int[] rndNumCount = new int[11];
         for(int counter=0; counter<100; counter++) {
+            GuessingGame game = new GuessingGame();
             int randomNum = game.getRandomNumber();
             rndNumCount[randomNum] = 1;
         }
